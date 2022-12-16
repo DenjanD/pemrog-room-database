@@ -1,4 +1,4 @@
-# Pengeluaran Que
+# Projek Tiru Amati Rekayasa
 Project latihan untuk belajar mengenai Room Database dan mengenalkan Android Architecture Components.
 
 ## Android Architecture Components
