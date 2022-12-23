@@ -87,30 +87,30 @@ public class TransaksiAdapter extends
         }
 
         void bindData(Transaksi item) {
-            String date = item.tgl_transaksi;
-            binding.tvDate.setText(date);
+            String tglTransaksi = item.tgl_transaksi;
+            binding.tvTglTransaksi.setText(tglTransaksi);
 
-            int Kuantity = item.qty;
-            binding.tvKuantity.setText(Kuantity);
+            int qty = item.qty;
+            binding.tvQty.setText(qty);
 
             int subTotal = item.sub_total;
             String initsubTotal = FunctionHelper.rupiahFormat(subTotal);
-            binding.tvST.setText(initsubTotal);
+            binding.tvSubTotal.setText(initsubTotal);
 
-            String diskon = item.promo;
-            binding.tvDiskon.setText(diskon);
+            String promo = item.promo;
+            binding.tvPromo.setText(promo);
 
             int totalAkhir = item.total_akhir;
-            String inittotalAkhir = FunctionHelper.rupiahFormat(totalAkhir);
-            binding.tvTA.setText(inittotalAkhir);
+            String initTotalAkhir = FunctionHelper.rupiahFormat(totalAkhir);
+            binding.tvTotalAkhir.setText(initTotalAkhir);
 
             int uangBayar = item.uang_bayar;
-            String inituangBayar = FunctionHelper.rupiahFormat(uangBayar);
-            binding.tvUB.setText(inituangBayar);
+            String initUangBayar = FunctionHelper.rupiahFormat(uangBayar);
+            binding.tvUangBayar.setText(initUangBayar);
 
             int kembalian = item.kembalian;
-            String initkembalian = FunctionHelper.rupiahFormat(kembalian);
-            binding.tvKembalian.setText(initkembalian);
+            String initKembalian = FunctionHelper.rupiahFormat(kembalian);
+            binding.tvKembalian.setText(initKembalian);
 
         }
     }

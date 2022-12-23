@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import com.app.pengeluaranque.databinding.ItemProdukBinding;
 import com.app.pengeluaranque.model.entity.Produk;
 import com.app.pengeluaranque.utils.FunctionHelper;
-import com.app.pengeluaranque.view.main.TambahData;
+import com.app.pengeluaranque.TambahData;
 
 public class ProdukAdapter extends
         RecyclerView.Adapter<ProdukAdapter.ViewHolder> {
@@ -26,10 +26,10 @@ public class ProdukAdapter extends
     private final ProdukAdapterCallback mAdapterCallback;
     private ItemProdukBinding binding;
 
-    public ProdukAdapter(Context context, List<Produk> list, ProdukAdapterCallback adapterCallback, ProdukAdapterCallback mAdapterCallback) {
+    public ProdukAdapter(Context context, List<Produk> list, ProdukAdapterCallback adapterCallback) {
         this.context = context;
         this.list = list;
-        this.mAdapterCallback = mAdapterCallback;
+        this.mAdapterCallback = adapterCallback;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ProdukAdapter extends
         notifyItemRangeRemoved(0, size);
     }
 
-    public static void addData(List<Produk> produks){
+    public void addData(List<Produk> produks){
         this.list = produks;
         notifyDataSetChanged();
     }
@@ -87,14 +87,14 @@ public class ProdukAdapter extends
 
         void bindData(Produk item) {
             String name = item.nama;
-            binding.tvName.setText(name);
+            binding.tvNama.setText(name);
 
             int stock = item.stok;
-            binding.tvStock.setText(stock);
+            binding.tvStok.setText(stock);
 
             int price = item.harga;
             String initPrice = FunctionHelper.rupiahFormat(price);
-            binding.tvPrice.setText(initPrice);
+            binding.tvHarga.setText(initPrice);
 
 
         }

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.app.pengeluaranque.TambahData;
 import com.app.pengeluaranque.adapter.ProdukAdapter;
-import com.app.pengeluaranque.databinding.ActivityMainBinding;
-import com.app.pengeluaranque.databinding.MenuBinding;
+import com.app.pengeluaranque.databinding.ActivityProdukBinding;
+//import com.app.pengeluaranque.databinding.MenuBinding;
 import com.app.pengeluaranque.model.entity.Produk;
 import com.app.pengeluaranque.model.entity.Produk;
 import com.app.pengeluaranque.utils.FunctionHelper;
@@ -24,7 +24,7 @@ import java.util.List;
 public class MainActivityProduk extends AppCompatActivity
         implements ProdukAdapter.ProdukAdapterCallback {
 
-    private MenuBinding binding;
+    private ActivityProdukBinding binding;
     private ProdukAdapter produkAdapter;
     private MainViewModelProduk mainViewModel;
 
@@ -33,7 +33,7 @@ public class MainActivityProduk extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = MenuBinding.inflate(getLayoutInflater());
+        binding = ActivityProdukBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initAdapter();
@@ -43,7 +43,7 @@ public class MainActivityProduk extends AppCompatActivity
     }
 
     private void initAction() {
-        binding.fabAdd.setOnClickListener(new View.OnClickListener() {
+        binding.btnTambahData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TambahData.startActivity(MainActivityProduk.this, false,
@@ -51,20 +51,20 @@ public class MainActivityProduk extends AppCompatActivity
             }
         });
 
-        binding.btnHapus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mainViewModel.deleteAllData();
-                binding.tvTotal.setText("0");
-            }
-        });
+//        binding.btnHapus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mainViewModel.deleteAllData();
+//                binding.tvTotal.setText("0");
+//            }
+//        });
     }
 
     private void initAdapter() {
-        produkAdapter = new produkAdapter(this, mProduks, this);
-        binding.rvProduks.setLayoutManager(new LinearLayoutManager(this));
-        binding.rvProduks.setItemAnimator(new DefaultItemAnimator());
-        binding.rvProduks.setAdapter(produkAdapter);
+        produkAdapter = new ProdukAdapter(this, mProduks, this);
+        binding.rvEditProduk.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvEditProduk.setItemAnimator(new DefaultItemAnimator());
+        binding.rvEditProduk.setAdapter(produkAdapter);
     }
 
     private void observeData() {
@@ -73,13 +73,13 @@ public class MainActivityProduk extends AppCompatActivity
                 new Observer<List<Produk>>() {
                     @Override
                     public void onChanged(List<Produk> produks) {
-                        if (produks.isEmpty()) {
-                            binding.btnHapus.setVisibility(View.GONE);
-                        } else {
-                            binding.btnHapus.setVisibility(View.VISIBLE);
-                        }
-
-                        ProdukAdapter.addData(produks);
+//                        if (produks.isEmpty()) {
+//                            binding.btnHapus.setVisibility(View.GONE);
+//                        } else {
+//                            binding.btnHapus.setVisibility(View.VISIBLE);
+//                        }
+//
+//                        ProdukAdapter.addData(produks);
                     }
                 });
 
@@ -87,15 +87,15 @@ public class MainActivityProduk extends AppCompatActivity
                 new Observer<Integer>() {
                     @Override
                     public void onChanged(Integer integer) {
-                        if (integer == null) {
-                            int totalPrice = 0;
-                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
-                            binding.tvTotal.setText(initPrice);
-                        } else {
-                            int totalPrice = integer;
-                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
-                            binding.tvTotal.setText(initPrice);
-                        }
+//                        if (integer == null) {
+//                            int totalPrice = 0;
+//                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
+//                            binding.tvTotal.setText(initPrice);
+//                        } else {
+//                            int totalPrice = integer;
+//                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
+//                            binding.tvTotal.setText(initPrice);
+//                        }
                     }
                 });
     }

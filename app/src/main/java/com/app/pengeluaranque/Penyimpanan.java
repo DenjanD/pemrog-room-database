@@ -12,12 +12,12 @@ public class Penyimpanan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_penyimpanan);
+        setContentView(R.layout.activity_produk);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Button button = findViewById(R.id.btn_tambah_data);
+        Button button = findViewById(R.id.btnTambahData);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

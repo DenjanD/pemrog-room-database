@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.036" />
 
     <Button
-        android:id="@+id/btn_tambah_data"
+        android:id="@+id/btnTambahData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_data"
@@ -45,12 +45,12 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_edit_produk"
+        android:id="@+id/rvEditProduk"
         android:layout_width="409dp"
         android:layout_height="411dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_tambah_data" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTambahData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
