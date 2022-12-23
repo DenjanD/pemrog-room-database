@@ -22,73 +22,33 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTglTransaksi"
+                android:id="@+id/tvHarga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp"
-                tools:text="22/10/2022" />
+                tools:text="Rp.50.000" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvQty"
+                android:id="@+id/tvNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/primary_text"
                 android:textSize="14sp"
-                tools:text="10 pcs" />
+                tools:text="Shampoo Clear 500ml" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvSubTotal"
+                android:id="@+id/tvStok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/primary_text"
                 android:textSize="14sp"
-                tools:text="Rp 15.000" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvPromo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp"
-                tools:text="10%" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTotalAkhir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp"
-                tools:text="Rp 13.500" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvUangBayar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp"
-                tools:text="Rp 20.000" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvKembalian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp"
-                tools:text="Rp 6.500" />
+                tools:text="5 pcs" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageView

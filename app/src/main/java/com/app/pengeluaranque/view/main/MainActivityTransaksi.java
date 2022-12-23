@@ -1,0 +1,114 @@
+package com.app.pengeluaranque.view.main;
+
+
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.app.pengeluaranque.TambahData;
+import com.app.pengeluaranque.adapter.ProdukAdapter;
+import com.app.pengeluaranque.databinding.ItemTransaksiBinding;
+//import com.app.pengeluaranque.databinding.MenuBinding;
+import com.app.pengeluaranque.model.entity.Produk;
+import com.app.pengeluaranque.model.entity.Produk;
+import com.app.pengeluaranque.utils.FunctionHelper;
+import com.app.pengeluaranque.view.add.AddDataActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivityTransaksi extends AppCompatActivity
+        implements ProdukAdapter.ProdukAdapterCallback {
+
+    private ItemTransaksiBinding binding;
+    private ProdukAdapter produkAdapter;
+    private MainViewModelTransaksi mainViewModel;
+
+    private List<Produk> mProduks = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ItemTransaksiBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        initAdapter();
+        observeData();
+
+        initAction();
+    }
+
+    private void initAction() {
+        binding.btnTambahData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TambahData.startActivity(MainActivityTransaksi.this, false,
+                        null);
+            }
+        });
+
+//        binding.btnHapus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mainViewModel.deleteAllData();
+//                binding.tvTotal.setText("0");
+//            }
+//        });
+    }
+
+    private void initAdapter() {
+        produkAdapter = new ProdukAdapter(this, mProduks, this);
+        binding.rvEditProduk.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvEditProduk.setItemAnimator(new DefaultItemAnimator());
+        binding.rvEditProduk.setAdapter(produkAdapter);
+    }
+
+    private void observeData() {
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModelTransaksi.class);
+        mainViewModel.getmProduks().observe(this,
+                new Observer<List<Produk>>() {
+                    @Override
+                    public void onChanged(List<Produk> produks) {
+//                        if (produks.isEmpty()) {
+//                            binding.btnHapus.setVisibility(View.GONE);
+//                        } else {
+//                            binding.btnHapus.setVisibility(View.VISIBLE);
+//                        }
+//
+//                        ProdukAdapter.addData(produks);
+                    }
+                });
+
+        mainViewModel.getTotalPrice().observe(this,
+                new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+//                        if (integer == null) {
+//                            int totalPrice = 0;
+//                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
+//                            binding.tvTotal.setText(initPrice);
+//                        } else {
+//                            int totalPrice = integer;
+//                            String initPrice = FunctionHelper.rupiahFormat(totalPrice);
+//                            binding.tvTotal.setText(initPrice);
+//                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onEdit(Produk produk) {
+        TambahData.startActivity(this, true, produk);
+    }
+
+    @Override
+    public void onDelete(Produk produk) {
+        int uid = produk.id_produk;
+        mainViewModel.deleteSingleData(uid);
+    }
+}
