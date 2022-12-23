@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import com.app.pengeluaranque.databinding.ItemProdukBinding;
 import com.app.pengeluaranque.model.entity.Produk;
 import com.app.pengeluaranque.utils.FunctionHelper;
-import com.app.pengeluaranque.view.main.MainActivityProduk;
+import com.app.pengeluaranque.view.main.TambahData;
 
 public class ProdukAdapter extends
         RecyclerView.Adapter<ProdukAdapter.ViewHolder> {
@@ -56,7 +56,7 @@ public class ProdukAdapter extends
         notifyItemRangeRemoved(0, size);
     }
 
-    public void addData(List<Produk> produks){
+    public static void addData(List<Produk> produks){
         this.list = produks;
         notifyDataSetChanged();
     }
@@ -90,7 +90,7 @@ public class ProdukAdapter extends
             binding.tvName.setText(name);
 
             int stock = item.stok;
-            binding.tvStock.setText(initStock);
+            binding.tvStock.setText(stock);
 
             int price = item.harga;
             String initPrice = FunctionHelper.rupiahFormat(price);
